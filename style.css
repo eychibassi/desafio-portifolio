@@ -1,0 +1,96 @@
+/* ESTILO GERAL */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body{
+    background-color:#121212;
+    height: 100vh;
+}
+.interface{
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* ESTILO DO HEADER */
+header{
+    padding: 40px 4%;
+}
+header > .interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Mantém as pontas */
+    position: relative; 
+}
+
+header nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+header {
+    /* ... seus estilos atuais (display flex, etc) ... */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha branca com 10% de visibilidade */
+    backdrop-filter: blur(10px); /* Opcional: dá um efeito de vidro fosco quando rolar */
+    position: sticky; /* Faz o menu ficar preso no topo ao rolar */
+    top: 0;
+    z-index: 1000;
+}
+header a{
+    color: #F5F5F5;
+    text-decoration: none;
+}
+header nav ul{
+    list-style: none;
+}
+
+header nav ul li{
+    display: inline-block;
+    padding: 0 40px;
+}
+
+header nav ul li a {
+    display: inline-block; /* Permite que o elemento sofra transformações (zoom) */
+    color: #F5F5F5;
+    text-decoration: none;
+    font-weight: 700; /* Voltando para o negrito que você gostou */
+    transition: 0.3s ease-in-out; /* Isso faz o zoom ser suave e não um susto */
+}
+
+header nav ul li a:hover {
+    color: #00dfd8; /* Muda para ciano ao passar o mouse */
+    text-shadow: 0 0 10px rgba(0, 223, 216, 0.6); /* Brilho ciano suave */
+    transform: scale(1.1); /* Leve aumento para dar feedback visual */
+}
+/* Estilo base do Logo */
+.logo a {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #F5F5F5; /* Branco do "Eduardo" */
+    text-decoration: none;
+    transition: 0.4s; /* Suaviza a entrada e saída do brilho */
+}
+
+/* Cor do Kenzo */
+.logo a span {
+    color: #00dfd8;
+    transition: 0.4s;
+}
+
+/* Efeito de Brilho ao passar o mouse */
+.logo a:hover {
+    /* Brilho branco para o nome Eduardo */
+    text-shadow: 0 0 10px rgba(245, 245, 245, 0.5), 
+                 0 0 20px rgba(245, 245, 245, 0.2);
+}
+
+.logo a:hover span {
+    /* Brilho ciano específico para o Kenzo */
+    text-shadow: 0 0 15px rgba(0, 223, 216, 0.8), 
+                 0 0 30px rgba(0, 223, 216, 0.4);
+}
