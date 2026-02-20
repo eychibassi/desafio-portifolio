@@ -94,3 +94,199 @@ header nav ul li a:hover {
     text-shadow: 0 0 15px rgba(0, 223, 216, 0.8), 
                  0 0 30px rgba(0, 223, 216, 0.4);
 }
+
+/* 1. Mantenha o que você já tinha, mas verifique as chaves */
+.topo-do-site .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 60px 0;
+}
+
+.txt-topo-site {
+    flex: 1;
+    max-width: 600px;
+}
+
+.txt-topo-site h1 {
+    color: #F5F5F5;
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.txt-topo-site h1 span {
+    color: #00dfd8;
+}
+
+.txt-topo-site p {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #F5F5F5;
+}
+
+/* 2. ADICIONE ESTES BLOCOS (CUIDADO COM AS CHAVES) */
+
+/* 1. CONTAINER DA DIREITA (Empilha PC e Carrossel) */
+.container-direita {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Espaço entre o PC e o Carrossel */
+}
+
+.img-topo-site img {
+    max-width: 300px;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 15px rgba(0, 223, 216, 0.2));
+}
+
+/* 2. AREA DO CARROSSEL (A "Janela" onde os ícones passam) */
+.carousel-skills {
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.2); /* Fundo mais claro como você pediu */
+    padding: 20px 0 45px 0; /* Padding inferior maior para o nome não sumir */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+
+/* 3. TRILHA DOS ÍCONES (O que realmente se move) */
+.carousel-track {
+    display: flex;
+    gap: 45px;
+    width: max-content;
+    animation: scroll-horizontal 20s linear infinite;
+}
+
+/* PAUSA NO HOVER */
+.carousel-skills:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+/* 4. WRAPPER DE CADA ÍCONE */
+.icon-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.icon-wrapper img {
+    width: 40px;
+    height: 40px;
+    image-rendering: pixelated;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+/* BRILHO E ZOOM NO ÍCONE */
+.icon-wrapper:hover img {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px #00dfd8);
+}
+
+/* 5. NOME DA TECNOLOGIA (O Tooltip) */
+.tech-name {
+    position: absolute;
+    bottom: -30px; /* Posicionado no espaço extra do padding */
+    background: #00dfd8;
+    color: #000;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(5px); /* Efeito de subir ao aparecer */
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* MOSTRA O NOME NO HOVER */
+.icon-wrapper:hover .tech-name {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 6. ANIMAÇÃO INFINITA */
+@keyframes scroll-horizontal {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        /* Move exatamente metade da largura (os 9 primeiros ícones) */
+        transform: translateX(calc(-50% - 22.5px)); 
+    }
+}
+.btn-contato {
+    margin-top: 30px; /* Espaço entre o texto e o botão */
+}
+
+.btn-contato button {
+    padding: 15px 40px;
+    border-radius: 30px;
+    border: 2px solid #00dfd8;
+    background: transparent;
+    color: #00dfd8;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .4s ease;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito ao passar o mouse */
+.btn-contato button:hover {
+    background-color: #00dfd8;
+    color: #000;
+    box-shadow: 0 0 20px #00dfd8;
+    transform: scale(1.05);
+}
+
+.btn-contato button:active {
+    transform: scale(0.95);
+}
+/* 1. Criando a animação de flutuar */
+@keyframes flutuar {
+    0% {
+        transform: translateY(0); /* Posição original */
+    }
+    50% {
+        transform: translateY(-15px); /* Sobe 15 pixels */
+    }
+    100% {
+        transform: translateY(0); /* Volta ao início */
+    }
+}
+
+/* 2. Aplicando na sua foto */
+.img-topo-site img {
+    animation: flutuar 3s ease-in-out infinite; /* 3 segundos, movimento suave, infinito */
+    
+    /* Aproveitando para garantir que ela tenha o brilho ciano que combina com o resto */
+    filter: drop-shadow(0 0 10px rgba(0, 223, 216, 0.3));
+}
+
+.img-topo-site img {
+    /* O primeiro valor (0 0 20px) controla o tamanho do brilho */
+    /* O segundo valor controla a cor (ciano do seu tema) */
+    filter: drop-shadow(0 0 15px #00dfd8);
+    
+    /* Se o corte estiver MUITO ruim, você pode usar dois filtros juntos: */
+    /* filter: drop-shadow(0 0 10px #00dfd8) contrast(1.1); */
+    
+    animation: flutuar 3s ease-in-out infinite;
+    width: 300px; /* Ou o tamanho que você preferir */
+}
+.img-topo-site {
+    margin-bottom: 20px; /* Cria um respiro entre você e as tecnologias */
+}
