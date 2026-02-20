@@ -325,11 +325,38 @@ header nav ul li a:hover {
     text-align: justify; /* Deixa o bloco de texto alinhado */
 }
 
-/* Formatando a Imagem */
+.img-sobre {
+    position: relative;
+    width: 400px;  /* Ajuste conforme seu layout */
+    height: 400px; /* Ajuste conforme seu layout */
+    overflow: hidden;
+    border-radius: 20px;
+}
+
 .img-sobre img {
-    max-width: 400px; /* Ajuste o tamanho da foto como preferir */
-    border-radius: 30px; /* Cantos arredondados */
-    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    /* 16 segundos no total (4s para cada foto) */
+    animation: loopQuatroFotos 16s infinite;
+}
+
+/* Delays de 4 em 4 segundos */
+.img-sobre img:nth-child(1) { animation-delay: 0s; }
+.img-sobre img:nth-child(2) { animation-delay: 4s; }
+.img-sobre img:nth-child(3) { animation-delay: 8s; }
+.img-sobre img:nth-child(4) { animation-delay: 12s; }
+
+@keyframes loopQuatroFotos {
+    0% { opacity: 0; }
+    5% { opacity: 1; }   /* Entra suave */
+    25% { opacity: 1; }  /* Fica visível até 1/4 do tempo total */
+    30% { opacity: 0; }  /* Sai suave */
+    100% { opacity: 0; } /* Espera o resto do ciclo invisível */
 }
 
 .btn-curriculo {
@@ -479,4 +506,83 @@ header nav ul li a:hover {
 .box-objetivo strong {
     color: #00dfd8; /* Use o seu ciano para destacar os pontos chave da frase */
     font-weight: 600;
+}
+
+.contato-minimalista {
+    padding: 100px 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    text-align: center;
+}
+
+/* Container do Título com a Bolinha */
+.status-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Espaço entre a bolinha e o texto */
+    margin-bottom: 10px;
+}
+
+.status-principal h1 {
+    color: #fff;
+    font-size: 35px; /* Tamanho de destaque */
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.bolinha-verde {
+    width: 20px; /* Aumentei o tamanho */
+    height: 20px;
+    background-color: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00ff00;
+    animation: pulsar 1.5s infinite;
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; } /* Ela cresce levemente ao pulsar */
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Frase Secundária */
+.frase-convite {
+    color: #00dfd8; /* Cor ciana para destacar o convite */
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.subtitulo {
+    color: #ccc;
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.icones-centrais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.img-contato {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: 0.4s ease; /* Transição suave para todos os efeitos */
+    opacity: 0.8; /* Deixa os ícones levemente "apagados" por padrão */
+}
+
+.img-contato:hover {
+    opacity: 1; /* Ganha cor total ao passar o mouse */
+    transform: scale(1.1) translateY(-5px); /* Sobe e cresce levemente */
+    filter: drop-shadow(0 0 12px #00dfd8); /* Adiciona o seu brilho ciano característico */
 }
