@@ -138,10 +138,43 @@ header nav ul li a:hover {
     gap: 30px; /* Espaço entre o PC e o Carrossel */
 }
 
+.img-topo-site {
+    display: flex;
+    flex-direction: column; /* Coloca a frase abaixo da imagem */
+    align-items: center;    /* Centraliza imagem e frase */
+    justify-content: center;
+    gap: 30px;              /* Espaço entre imagem e texto */
+}
+
+/* Forçando o tamanho da imagem */
 .img-topo-site img {
-    max-width: 300px;
+    width: 450px !important;  /* Força a largura em 450px */
+    max-width: 550px;         /* Limite de segurança */
+    height: auto;             /* Mantém a proporção */
     image-rendering: pixelated;
-    filter: drop-shadow(0 0 15px rgba(0, 223, 216, 0.2));
+    filter: drop-shadow(0 0 20px rgba(0, 223, 216, 0.3));
+}
+
+/* Estilização da Frase */
+.frase-container {
+    text-align: center;
+    max-width: 400px; /* Limita a largura para a frase quebrar linha e ficar elegante */
+}
+
+.texto-frase {
+    font-size: 1.2rem;
+    color: #fff;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.autor-frase {
+    color: #00dfd8;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* 2. AREA DO CARROSSEL (A "Janela" onde os ícones passam) */
