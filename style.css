@@ -586,3 +586,206 @@ header nav ul li a:hover {
     transform: scale(1.1) translateY(-5px); /* Sobe e cresce levemente */
     filter: drop-shadow(0 0 12px #00dfd8); /* Adiciona o seu brilho ciano característico */
 }
+
+.sobre-carousel {
+    max-width: 800px;
+    margin: 40px auto !important; /* Centraliza e dá espaço vertical */
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.2); /* Um fundo sutil para destacar dos cards */
+}
+
+.titulo-habilidades {
+    text-align: center;
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.titulo-habilidades span {
+    color: #00dfd8; /* Cor destaque do seu projeto */
+}
+
+/* Ajuste da velocidade caso tenha muitos ícones */
+.sobre-carousel .carousel-track {
+    animation-duration: 25s; 
+}
+
+.minhas-habilidades {
+    margin-top: 80px; /* Ajuste o valor conforme achar melhor */
+    margin-bottom: 40px; /* Espaço em relação aos Próximos Passos */
+}
+
+/* --- SEÇÃO DE PROJETOS --- */
+
+.projetos {
+    padding: 80px 0;
+}
+
+.projetos .titulo {
+    text-align: center;
+    font-size: 38px;
+    color: #fff;
+}
+
+.projetos .titulo span {
+    color: #00dfd8;
+}
+
+/* CONTAINER DO GRID */
+.container-grid-projetos {
+    display: grid;
+    /* Aumentamos o gap para as caixas não ficarem coladas */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+    margin-top: 60px;
+}
+
+/* O CARD INDIVIDUAL */
+.projeto-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: 0.4s ease;
+    display: flex;
+    flex-direction: column;
+
+    /* Aumente este valor para esticar a caixa verticalmente */
+    min-height: 650px; 
+}
+/* ÁREA DE TEXTO DO CARD */
+.projeto-info {
+    padding: 30px;
+    flex-grow: 1; /* Isso faz o corpo do texto preencher o espaço vertical */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha o texto no topo */
+}
+
+.projeto-info p {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+
+    /* Forçando a remoção de qualquer trava de linha */
+    display: block !important;           /* Sobrescreve o -webkit-box */
+    -webkit-line-clamp: unset !important; /* Desativa o limite de linhas */
+    line-clamp: unset !important;
+    overflow: visible !important;        /* Garante que o texto apareça */
+    height: auto !important;             /* Deixa o texto ocupar o espaço que precisar */
+}
+/* EFEITO AO PASSAR O MOUSE NO CARD */
+.projeto-card:hover {
+    transform: translateY(-10px);
+    border: 1px solid #00dfd8;
+    box-shadow: 0 0 30px rgba(0, 223, 216, 0.15);
+}
+
+/* IMAGEM DO PROJETO */
+.projeto-img {
+    width: 100%;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+/* Efeito de zoom na imagem quando o card recebe hover */
+.projeto-card:hover .projeto-img {
+    transform: scale(1.08);
+}
+
+/* ÁREA DE TEXTO DO CARD */
+.projeto-info {
+    padding: 25px;
+    flex-grow: 1; /* Faz com que todos os cards tenham a mesma altura */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.projeto-info h3 {
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.projeto-info p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+
+    /* --- Solução para limitar linhas --- */
+    display: -webkit-box;           /* Necessário para o motor Webkit */
+    -webkit-box-orient: vertical;   /* Define a orientação do box */
+    -webkit-line-clamp: 3;          /* Limita a 3 linhas (Webkit) */
+    
+    line-clamp: 3;                  /* Propriedade padrão moderna */
+    
+    overflow: hidden;               /* Esconde o texto que ultrapassar */
+}
+
+/* TAGS DE TECNOLOGIA */
+.projeto-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: auto; /* Empurra as tags para o final do card */
+}
+
+.projeto-tags span {
+    background: rgba(0, 223, 216, 0.1);
+    color: #00dfd8;
+    border: 1px solid #00dfd8;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+/* --- RESPONSIVIDADE --- */
+
+/* Para Tablets */
+@media screen and (max-width: 1024px) {
+    .container-grid-projetos {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    }
+}
+
+/* Para Celulares */
+@media screen and (max-width: 768px) {
+    .container-grid-projetos {
+        grid-template-columns: 1fr; /* 1 coluna ocupando tudo */
+        padding: 0 20px;
+    }
+    
+    .projetos .titulo {
+        font-size: 30px;
+    }
+}
+.projetos-em-breve {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 20px;
+}
+
+.projetos-em-breve p {
+    color: rgba(255, 255, 255, 0.5); /* Texto mais discreto */
+    font-size: 18px;
+    font-style: italic;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+/* Uma linhazinha sutil embaixo para dar acabamento */
+.linha-decorativa {
+    width: 60px;
+    height: 2px;
+    background-color: #00dfd8;
+    margin: 0 auto;
+    border-radius: 10px;
+    opacity: 0.6;
+}
