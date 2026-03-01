@@ -98,7 +98,8 @@ header nav ul li a:hover {
 /* 1. Mantenha o que você já tinha, mas verifique as chaves */
 .topo-do-site .flex {
     display: flex;
-    align-items: center;
+    /* Altera de center para flex-start para travar os topos na mesma altura */
+    align-items: flex-start; 
     justify-content: space-between;
     gap: 40px;
     padding: 60px 0;
@@ -136,6 +137,7 @@ header nav ul li a:hover {
     flex-direction: column;
     align-items: center;
     gap: 30px; /* Espaço entre o PC e o Carrossel */
+    
 }
 
 .img-topo-site {
@@ -152,7 +154,7 @@ header nav ul li a:hover {
     max-width: 550px;         /* Limite de segurança */
     height: auto;             /* Mantém a proporção */
     image-rendering: pixelated;
-    filter: drop-shadow(0 0 20px rgba(0, 223, 216, 0.3));
+
 }
 
 /* Estilização da Frase */
@@ -306,7 +308,7 @@ header nav ul li a:hover {
     animation: flutuar 3s ease-in-out infinite; /* 3 segundos, movimento suave, infinito */
     
     /* Aproveitando para garantir que ela tenha o brilho ciano que combina com o resto */
-    filter: drop-shadow(0 0 10px rgba(0, 223, 216, 0.3));
+    
 }
 
 .img-topo-site img {
